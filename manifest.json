@@ -1,0 +1,22 @@
+{
+  "name": "BigBlueButton Captioning",
+  "version": "1.0",
+  "description": "The first extension that I made.",
+  "browser_action": {
+    "default_icon": "icon.png",
+		"popup" : "popup.html"
+  },
+
+	"content_scripts": [
+	    {
+	      "matches": ["<all_urls>"],
+	      "css": ["hide.css"],
+	      "js": ["jquery-1.5.1.min.js", "captioning.js"]
+	    }
+	  ],
+	
+  "permissions": [
+		"http://*/",
+		"tabs"
+  ]
+}

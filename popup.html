@@ -1,0 +1,43 @@
+<style>
+
+body{
+	max-height: 10px;
+}
+
+input{
+
+color:transparent;
+background-color:transparent;
+border:0px;
+width:15px;
+
+-webkit-transform: scale(3.0, 3.0);
+-moz-transform: scale(3.0, 3.0);
+-ms-transform: scale(3.0, 3.0);
+transform: scale(3.0, 3.0);
+
+}
+
+</style>
+
+<script>
+var speechEvent = document.createEvent('Event');
+speechEvent.initEvent('speechEvent', true, true);
+
+function speak(){
+	var speechInput = document.getElementById('speech-input-field');
+	
+	chrome.tabs.getSelected(null, function(tab){
+		var port = chrome.tabs.connect(tab.id);
+		port.postMessage({speechText: speechInput.value});
+	});
+	
+	
+	//var message = document.createElement("p");
+	//message.innerHTML = speechInput.value;
+	//document.body.appendChild(message);
+	//speechInput.dispatchEvent(speechEvent);
+}
+</script>
+
+<input id="speech-input-field" type="text" x-webkit-speech onspeechchange="speak();" onwebkitspeechchange="speak();" /> 
