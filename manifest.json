@@ -9,7 +9,7 @@
 
 	"content_scripts": [
 	    {
-	      "matches": ["<all_urls>"],
+	      "matches": ["http://*/*BigBlueButton.html"],
 	      "css": ["hide.css"],
 	      "js": ["jquery-1.5.1.min.js", "captioning.js"]
 	    }
